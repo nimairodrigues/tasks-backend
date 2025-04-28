@@ -51,6 +51,14 @@ pipeline {
                 }
             }
         }
+        stage('Funcional test') {
+            steps {
+                dir('funcional-test') {
+                    git credentialsId: 'github_loginnn', url: 'https://github.com/nimairodrigues/tasks-funcional-test'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
 
